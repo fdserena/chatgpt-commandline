@@ -914,7 +914,7 @@ def number_of_active_threads():
 	global_osthread_lock.release()
 	return i
 
-def get_msg(osthreadid, config_dict_num):
+def get_msg(osthreadid, config_dictnum):
 	msg=""
 	first_msg=True
 	while True:
