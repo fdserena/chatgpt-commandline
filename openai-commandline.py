@@ -893,6 +893,8 @@ def get_config_dict(namespace):
 		else: # clen==0
 			sys.__stdout__.write(f"\nconfiguration file '{namespace.c[j]}' not readable using default values.\n")
 			config_dict_list.append(config_dict_default)
+	else:
+		config_dict_list.append(config_dict_default)
 
   
 	return config_dict_list
