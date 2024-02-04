@@ -546,6 +546,13 @@ def create_parser():
 	parser_name_thread.add_argument('thread_name', type=str, metavar='readable_thread_name', nargs=1)
 	parser_name_thread.set_defaults(name_threadx=True)
 
+	# TODO implement this	
+	parser_new_asst= subparsers.add_parser('new_asst', help="create new assistant")
+	# with -c a new assistant is copied from another assistant's configuration
+	parser_new_asst.add_argument('-c', '--config', metavar='config_file_number', type=int, nargs='?',
+					help='add and optional configuration number')
+	parser_new_asst.set_defaults(new_asstx=True)
+	
 	return parser
 
 def file_list(client, thread, messages):
@@ -849,6 +856,27 @@ def default_for_missing_keys(dict1,dict_def):
 		dict1.setdefault(j, dict_def[j])
 	return
 
+
+def default_asst():
+	return {
+		"assistant_name": "template name 1.0 temp",
+		"purpose": "generic purpose",
+		"files": [],
+		"file_ids": [],
+		"tools": [{"type": "code_interpreter"},{"type": "retrieval"}],
+		"final_message": "please delete the files in the sandbox",
+		"msg_preamble": "",
+		"echo_output_file": "default",
+	}
+
+
+def new_asst(namespace, namespace2):
+
+	config_dict_list=get_config_dict(namespace) 
+	
+
+
+
 def get_config_dict(namespace):
 	# *** IMPORTANT *** config_dict values become local variables in the single threaded context
 	#  and globals in the multithreaded context
@@ -857,17 +885,7 @@ def get_config_dict(namespace):
 
 	# default values they will become local variables
 	# do not name anything as them or they will not take the value
-	config_dict_default = {
-		"assistant_name": "template name 1.0 temp",
-		"purpose": "generic purpose",
-		"files": [],
-		"file_ids": [],
-		"tools": [{"type": "code_interpreter"},{"type": "retrieval"}],
-		"final_message": "please delete the files in the sandbox",
-		"msg_preamble": "",
-		"echo_output_file": None,
-	}
-
+	config_dict_default = default_asst()
 	config_dict_list=[]
 
 	# read configuration data if flag is present
@@ -1098,7 +1116,7 @@ def mainx(namespace, client, thread, osthreadid=0, config_dictnum=0):
 	global_thread_list[osthreadid][ThreadArray.TD]=td
 	global_osthread_lock.release()
 
-	ThreadLogger.add(osthreadid,td,f"thread.{osthreadid}.log.txt")
+	ThreadLogger.add(osthreadid,td,f"{mloc.echo_output_file}.thread.{osthreadid}.log.txt")
 
 	# no prints before here write to console
 	print(f"assistant_name='{mloc.assistant_name}'")
@@ -1331,6 +1349,11 @@ will be used to store session files: {td}''')
 						print(f"Final message sent: '{msg}'")
 					else:
 						break
+				elif ("new_asstx" in v) and v.new_asstx==True:				
+					print(f"not yet implemented.")
+					continue
+					# TODO implement
+					new_asst(namespace,v)
 				elif ("name_threadx" in v) and v.name_threadx==True:				
 					integrity_check()
 					#name=concatenate_list(v.thread_name)
