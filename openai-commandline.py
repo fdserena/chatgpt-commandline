@@ -537,7 +537,7 @@ def create_parser():
 
 	parser_join2_thread= subparsers.add_parser('join2_thread', help="joins 2 threads with conversation 'seeds'")
 	parser_join2_thread.add_argument('thread_numbers', metavar='t_for_thread_2_join', type=int, nargs='+',
-					help='goes into parallel run mode on the two named threads. Threads are joined in a conversation')
+					help='goes into parallel run mode on the two named (accessed by thread number) threads. Threads are joined in a conversation')
 	parser_join2_thread.add_argument('-d', '--depth', default=5, type=int, nargs=1, metavar='maximum conversation depth assumed 5')
 	parser_join2_thread.add_argument('-s', '--seed', default=2, type=int, nargs=1, metavar='seed values for starting cross talk.')
 	parser_join2_thread.set_defaults(join2_threadx=True)
@@ -549,7 +549,7 @@ def create_parser():
 	# TODO implement this	
 	parser_new_asst= subparsers.add_parser('new_asst', help="create new assistant")
 	# with -c a new assistant is copied from another assistant's configuration
-	parser_new_asst.add_argument('-c', '--config', metavar='config_file_number', type=int, nargs='?',
+	parser_new_asst.add_argument('-c', '--config', metavar='config_file_number', type=int, nargs=1,
 					help='add and optional configuration number')
 	parser_new_asst.set_defaults(new_asstx=True)
 	
