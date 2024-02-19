@@ -550,7 +550,7 @@ def create_parser():
 	parser_new_asst= subparsers.add_parser('new_asst', help="create new assistant")
 	# with -c a new assistant is copied from another assistant's configuration
 	parser_new_asst.add_argument('-c', '--config', metavar='config_file_number', type=int, nargs=1,
-					help='add and optional configuration number')
+					help='add an optional configuration number')
 	parser_new_asst.set_defaults(new_asstx=True)
 	
 	return parser
