@@ -427,7 +427,8 @@ def open_assistant(namespace, client, name, purpose_narrative="",
 			assistant = client.beta.assistants.create(
 			  name=name,
 			  description=purpose_narrative,
-			  model="gpt-4-1106-preview",
+#			  model="gpt-4-1106-preview",
+			  model="gpt-4-turbo",
 			  tools=tools,
 			  file_ids=fid_id_list
 			)
