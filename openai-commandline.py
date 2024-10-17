@@ -34,7 +34,7 @@ global_thread_list = []
 global_deletion_list = [] # index 0 is the deleting thread ID. 
 						  # the remaining indicies are the 
 						  # threads being deleted
-global_parallel_execution_list=[]  # implmenting parallel execution
+global_parallel_execution_list=[]  # implementing parallel execution
 global_fatal_error=False  # causes main thread to sys.exit() if True
 						  # TODO implement
 global_talk_pair=[]		  # contains [threadthattriggered, talktheard1, talkthread2, depth, depth_count, which_thread]  
