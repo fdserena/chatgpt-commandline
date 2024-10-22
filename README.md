@@ -1,7 +1,7 @@
 chatgpt-commandline
 donate please
 
-assumes python3
+assumes::: python3
 
 assumes:::  pip install openai==1.20.0
 
