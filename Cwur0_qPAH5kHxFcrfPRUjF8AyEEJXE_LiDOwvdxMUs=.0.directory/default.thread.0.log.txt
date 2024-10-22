@@ -1,0 +1,8 @@
+assistant_name='template name 1.0 temp'
+Based on assistant_name the following directory 
+will be used to store session files: Cwur0_qPAH5kHxFcrfPRUjF8AyEEJXE_LiDOwvdxMUs=.0.directory
+Directory 'Cwur0_qPAH5kHxFcrfPRUjF8AyEEJXE_LiDOwvdxMUs=.0.directory' already exists
+Uploading Files
+Creating assistant
+Assistant creation failed
+Exiting

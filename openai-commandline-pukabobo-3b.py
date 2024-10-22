@@ -22,10 +22,6 @@ import atexit
 import shlex
 import re
 
-# define which version of openai api one wishes to use V1 or V2 as of 10.22.2024
-global_current_openai_version="V1"
-#global_current_openai_version="V2"
-
 #-------------------------------------------------
 # recursive lock for the following 4 values
 global_osthread_lock=RLock()
@@ -734,24 +730,7 @@ def make_locals(dict1, thread_local_storage):
 		exec(v) 
 
 def dele(namespace):
-	
-	# define these along with your key as a precursor to the
-	# OpenAI function parameters needed
-	try: 
-		OPENAIORGVAL =os.environ.get('OPENAIORGVAL')
-		if global_current_openai_version=="V1":
-			pass
-		else:
-			OPENAIPROJVAL=os.environ.get('OPENAIPROJVAL')
-	except:	
-		print (f"Define environment variables from project and your organization\n")
-		exit (100);
-
-	if global_current_openai_version=="V1":
-		client= OpenAI(default_headers={"OpenAI-Beta": "assistants=v1"}, organization=OPENAIORGVAL,) 
-	else:	
-		client= OpenAI(default_headers={"OpenAI-Beta": "assistants=v2"}, organization=OPENAIORGVAL, project=OPENAIPROJVAL, )
- 
+	client = OpenAI()
 	thread=dict()
 	# single threaded "delete"
  
@@ -819,23 +798,13 @@ def main(namespace):
 	global global_make_a_new_thread_lock
 	global global_main_thread
 
-	# define these along with your key as a precursor to the
-	# OpenAI function parameters needed
-	try: 
-		OPENAIORGVAL =os.environ.get('OPENAIORGVAL')
-		if global_current_openai_version=="V1":
-			pass
-		else:
-			OPENAIPROJVAL=os.environ.get('OPENAIPROJVAL')
-	except:	
-		print (f"Define environment variables from project and your organization\n")
-		exit (100);
+# define these along with your key as a precursor to the
+# OpenAI function parameters needed
 
-	if global_current_openai_version=="V1":
-		client= OpenAI(default_headers={"OpenAI-Beta": "assistants=v1"}, organization=OPENAIORGVAL,) 
-	else:	
-		client= OpenAI(default_headers={"OpenAI-Beta": "assistants=v2"}, organization=OPENAIORGVAL, project=OPENAIPROJVAL, )
-  
+    OPENAIORGVAL =os.environ.get('OPENAIORGVAL')
+    OPENAIPROJVAL=os.environ.get('OPENAIPROJVAL')
+
+	client = OpenAI()
 	thread=dict()  # not os thread OpenAi thread
 
 	global_main_thread=threading.main_thread()

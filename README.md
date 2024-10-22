@@ -3,6 +3,8 @@ donate please
 
 assumes python3
 
+assumes:::  pip install openai==1.20.0
+
 try:
 python openai-commandline.py run -c openai-template-prev-lie.config 
 openai-template-prev-tru.config
