@@ -5,8 +5,8 @@ Directory 'Cwur0_qPAH5kHxFcrfPRUjF8AyEEJXE_LiDOwvdxMUs=.0.directory' already exi
 Uploading Files
 Creating assistant
 purpose_narrative: generic purpose
-asst_GLbSWwhMm9igPmk8xmsXubVl
-Assistant: asst_GLbSWwhMm9igPmk8xmsXubVl
+asst_I1TcrnrrdwnFiROa8GFa2e6x
+Assistant: asst_I1TcrnrrdwnFiROa8GFa2e6x
 With no uploaded files.
 Commencing Run
 Input User Message (A:0 Thread 0): Final message sent: 'please delete the files in the sandbox'
@@ -14,7 +14,7 @@ full question/command to OpenAI GPT: please delete the files in the sandbox
 
 ----------------------------------
 
-I don't have the capability to delete files from the sandbox or make any changes to the file system. If you need help with another task or have any other queries, feel free to ask!
+I'm unable to directly delete files in the sandbox. Please let me know if there's anything else I can assist you with!
 
 ----------------------------------
 
@@ -24,5 +24,5 @@ I don't have the capability to delete files from the sandbox or make any changes
 
 ++++++++++++++++++++++++++++++++++
 
-Deleting OpenAI Thread 'thread_tjzEd2JS5YHIWpkH7WQUuZMH'
-ThreadDeleted(id='thread_tjzEd2JS5YHIWpkH7WQUuZMH', deleted=True, object='thread.deleted')
+Deleting OpenAI Thread 'thread_JixKZ52OwaepLooj7ZmbncqU'
+ThreadDeleted(id='thread_JixKZ52OwaepLooj7ZmbncqU', deleted=True, object='thread.deleted')
