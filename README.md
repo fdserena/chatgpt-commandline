@@ -1,3 +1,9 @@
+
+Deprecation: v1 beta version of Assistants API shutting down on December 18, 2024
+
+The program will not work!
+
+
 chatgpt-commandline
 donate please
 
